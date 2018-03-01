@@ -1,0 +1,34 @@
+<div class="" style="padding:5%">
+
+<div *ngFor="let Q of Quiz $index">
+<div class="form-group">
+  <label>Question N° {{$index}}:{{Q.title}}:</label>
+</div>
+
+
+<div class="form-group" *ngIf='Q.type==1'>
+  <label>Reponse:</label>
+  <input type="text" class="form-control">
+</div>
+
+<div class="form-group" *ngIf='Q.type==2'>
+    <label>Reponse:</label>
+    <input type="radio" class="form-control" value="radio1">
+    <label >{{Q.radio.radio1}}</label>
+    <input type="radio" class="form-control" value="radio2">
+    <label >{{Q.radio.radio1}}</label>
+</div>
+
+<div class="form-group" *ngIf='Q.type==3'>
+    <label>Reponse:</label>
+    <input type="checkbox" class="form-control" value="checkbox1" [(ngModel)]="reponseCheckbox1">
+    <label>{{Q.checkbox.check1}}</label>
+    <input type="checkbox" class="form-control" value="checkbox2" [(ngModel)]="reponseCheckbox2">
+    <label>{{Q.checkbox.check1}}</label>
+</div>
+
+<div class="action">
+  <input type="button" value="Check Response" (click)="verifQ(this.Q)" class="btn btn-success">
+</div>
+</div>
+</div>

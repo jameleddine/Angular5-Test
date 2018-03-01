@@ -1,0 +1,48 @@
+<div>
+   <h2>{{ 'welcome' | translate }}</h2>
+   <label>
+     {{ 'welcome' | translate }}
+     <select #langSelect (change)="translate.use(langSelect.value)">
+       <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">{{ lang }}</option>
+     </select>
+   </label>
+ </div>
+ 
+<h2>Welcome to the Quiz App</h2>
+<div class="col-md-8">
+ <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Name" value="" [formControl]="nameFormControl"  [(ngModel)]="name" >
+        <mat-error *ngIf="nameFormControl.hasError('required')">
+        Please enter a valid name
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Phone" value=""  [formControl]="phoneFormControl" [(ngModel)]="phone" >
+          <mat-error *ngIf="phoneFormControl.hasError('required')">
+          Please enter a phone phone
+          </mat-error>
+    </mat-form-field>
+  
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Email" [formControl]="emailFormControl" [(ngModel)]="email" >
+        <mat-error *ngIf="emailFormControl.hasError('email') && emailFormControl.hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+      </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="password" [formControl]="passwordFormControl" [(ngModel)]="password" >
+        <mat-error *ngIf="passwordFormControl.hasError('minlength')">
+            Password is <strong>error</strong>
+          </mat-error>
+    </mat-form-field> 
+    <mat-form-field class="example-full-width">
+      <textarea matInput placeholder="Leave a comment" [formControl]="aboutFormControl" [(ngModel)]="about"></textarea>
+    </mat-form-field>
+
+  <div class="button-row">
+  <button mat-raised-button color="primary" (click)="succes()">Inscription</button>
+  </div>
+</form>
+</div>

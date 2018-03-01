@@ -1,0 +1,49 @@
+
+  <br>
+  <!-- <button class="btn btn-danger" (click)="decrement()">decrement</button>
+  {{count}}
+  <button class="btn btn-info" (click)="increment()">Increment</button> -->
+  
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <td>Recherche:</td>
+        <td><input class="form-control" type="text" [(ngModel)]="term">
+        </td>
+      </tr>
+      <tr>
+        <td appTestdirective>Name</td>
+        <td appTestdirective>Id</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let h of HEROES|quizPipe:term">
+        <td>{{h.name}}</td>
+        <td>{{h.id}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <h2>Liste des Postes</h2>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <td appTestdirective>Id</td>
+        <td appTestdirective>Title</td>
+        <td appTestdirective>Body</td>
+      </tr>
+      <tr>
+        <td>Recherche</td>
+        <td><input placeholder="Post" class="form-control" type="text" [(ngModel)]="title"></td>
+        <td><input placeholder="Body" class="form-control" type="text" [(ngModel)]="bodys"></td>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let post of results|posts:title|body:bodys'>
+        <td>{{post.id}}</td>
+        <td>{{post.title}}</td>
+        <td>{{post.body}}</td>
+      </tr>
+    </tbody>
+  </table>
+  

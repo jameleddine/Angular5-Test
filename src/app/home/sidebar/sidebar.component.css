@@ -1,0 +1,14 @@
+#sidebar-wrapper{
+    background-color: black;
+    height: 100%;
+}
+.sidebar-nav{
+    color:white;
+}
+.sidebar-nav li{
+    padding:10%;
+    
+}
+.sidebar-nav li>a{
+    color : yellow    
+}
